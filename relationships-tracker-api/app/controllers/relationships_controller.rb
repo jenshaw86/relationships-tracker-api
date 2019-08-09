@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
     def index
         relationships = Relationship.all
-        render :json => relationships
+        render :json => relationships, include: [:events]
     end
 
     def show
@@ -29,14 +29,14 @@ class RelationshipsController < ApplicationController
         relationship = Relationship.find(params[:id])
         relationship.update(relationship_params)
         relationships = Relationship.all
-        render :json => relationships
+        render :json => relationships, include: [:events]
     end
 
     def destroy
         relationship = Relationship.find(params[:id])
         relationship.delete()
         relationships = Relationship.all
-        render :json => relationships       
+        render :json => relationships, include: [:events] 
     end
 
     private 
