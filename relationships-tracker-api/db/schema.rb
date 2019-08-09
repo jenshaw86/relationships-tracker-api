@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2019_08_07_204203) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "start_date"
-    t.string "end_date"
-    t.string "start_time"
-    t.string "end_time"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.time "end_time"
     t.string "location"
     t.string "description"
     t.integer "user_id"
@@ -41,10 +41,8 @@ ActiveRecord::Schema.define(version: 2019_08_07_204203) do
     t.string "email"
     t.string "phone_number"
     t.string "image"
-    t.string "birthday"
     t.string "relationship_type"
-    t.string "relationship_length"
-    t.string "relationship_description"
+    t.integer "contact_frequency"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,7 +54,6 @@ ActiveRecord::Schema.define(version: 2019_08_07_204203) do
     t.string "email"
     t.string "phone_number"
     t.string "image"
-    t.string "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

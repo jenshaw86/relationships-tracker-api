@@ -12,7 +12,6 @@ jenny = User.create(
     email: 'notynnej@geemail.com', 
     phone_number: '+12064746674',
     image: '', 
-    birthday: '05/21/1986'
 )
 
 f1 = Relationship.create(
@@ -21,10 +20,8 @@ f1 = Relationship.create(
     email: 'r.aidi@gmail.com',
     phone_number: '+12067896789',
     image: '',
-    birthday: '08/13/1992',
     relationship_type: 'significant other',
-    relationship_length: '3 years',
-    relationship_description: 'We met in Taiwan',
+    contact_frequency: 7,
     user_id: 1
 )
 
@@ -34,10 +31,8 @@ f2 = Relationship.create(
     email: 'f.fabro@gmail.com',
     phone_number: '+12061230987',
     image: '',
-    birthday: '02/26/1991',
     relationship_type: 'friend',
-    relationship_length: '3 months',
-    relationship_description: 'Flatiron classmate',
+    contact_frequency: 12,
     user_id: 1
 )
 
@@ -47,19 +42,17 @@ f3 = Relationship.create(
     email: 'yuwi@gmail.com',
     phone_number: '+19172309481',
     image: '',
-    birthday: '01/29/80',
     relationship_type: 'sibling',
-    relationship_length: 'for life',
-    relationship_description: 'She is family',
+    contact_frequency: 30,
     user_id: 1
 )
 
 e1 = Event.create(
     name: 'Food Truck Fest',
-    start_date: '08/13/2019',
-    end_date: '08/13/2019',
-    start_time: '1500',
-    end_time: '1700',
+    start_date: '08-13-2019',
+    end_date: '08-13-2019',
+    start_time: '15:00',
+    end_time: '17:00',
     location: 'Seattle',
     description: "It's gonna be dope.",
     user_id: 1
@@ -67,10 +60,10 @@ e1 = Event.create(
 
 e2 = Event.create(
     name: 'Dinner and a Movie',
-    start_date: '08/23/2019',
-    end_date: '08/23/2019',
-    start_time: '1800',
-    end_time: '2100',
+    start_date: '08-23-2019',
+    end_date: '08-23-2019',
+    start_time: '18:00',
+    end_time: '21:00',
     location: 'Seattle',
     description: "It's gonna be romantic.",
     user_id: 1
@@ -78,10 +71,10 @@ e2 = Event.create(
 
 e1 = Event.create(
     name: 'Street Fair',
-    start_date: '08/29/2019',
-    end_date: '08/29/2019',
-    start_time: '1200',
-    end_time: '1400',
+    start_date: '08-29-2019',
+    end_date: '08-29-2019',
+    start_time: '12:00',
+    end_time: '14:00',
     location: 'Seattle',
     description: "It's gonna be insane.",
     user_id: 1
