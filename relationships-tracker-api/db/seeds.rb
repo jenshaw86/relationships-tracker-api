@@ -49,10 +49,8 @@ f3 = Relationship.create(
 
 e1 = Event.create(
     name: 'Food Truck Fest',
-    start_date: '08-13-2019',
-    end_date: '08-13-2019',
-    start_time: '15:00',
-    end_time: '17:00',
+    start_date: 'Tue, 13 Aug 2019 16:00:00 -0700',
+    end_date: 'Tue, 13 Aug 2019 18:00:00 -0700',
     location: 'Seattle',
     description: "It's gonna be dope.",
     user_id: 1
@@ -60,10 +58,8 @@ e1 = Event.create(
 
 e2 = Event.create(
     name: 'Dinner and a Movie',
-    start_date: '08-23-2019',
-    end_date: '08-23-2019',
-    start_time: '18:00',
-    end_time: '21:00',
+    start_date: 'Fri, 23 Aug 2019 11:00:00 -0700',
+    end_date: 'Fri, 23 Aug 2019 12:00:00 -0700',
     location: 'Seattle',
     description: "It's gonna be romantic.",
     user_id: 1
@@ -71,10 +67,8 @@ e2 = Event.create(
 
 e1 = Event.create(
     name: 'Street Fair',
-    start_date: '08-29-2019',
-    end_date: '08-29-2019',
-    start_time: '12:00',
-    end_time: '14:00',
+    start_date: 'Thu, 29 Aug 2019 10:00:00 -0700',
+    end_date: 'Thu, 29 Aug 2019 14:00:00 -0700',
     location: 'Seattle',
     description: "It's gonna be insane.",
     user_id: 1
