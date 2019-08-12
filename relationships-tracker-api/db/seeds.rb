@@ -9,9 +9,17 @@
 jenny = User.create(
     first_name: 'Jenny', 
     last_name: 'Shaw', 
-    email: 'notynnej@geemail.com', 
+    email: 'jenny@geemail.com', 
     phone_number: '+12064746674',
-    image: '', 
+    image: 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/16252402_10100427937247180_4377359445822303300_o.jpg?_nc_cat=110&_nc_oc=AQlF5C7-iWauq-GISrOqwLz5iedKXB0GPBwoICFJQIF4PIPJCQzFfm388KjCNqTOgag&_nc_ht=scontent-lga3-1.xx&oh=6112b0a36dce9a8db2585f4a9e9094cf&oe=5DDCF433', 
+)
+
+ginny = User.create(
+    first_name: 'Ginny', 
+    last_name: 'Chou', 
+    email: 'notynney@geemail.com', 
+    phone_number: '+12064746674',
+    image: 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/16252402_10100427937247180_4377359445822303300_o.jpg?_nc_cat=110&_nc_oc=AQlF5C7-iWauq-GISrOqwLz5iedKXB0GPBwoICFJQIF4PIPJCQzFfm388KjCNqTOgag&_nc_ht=scontent-lga3-1.xx&oh=6112b0a36dce9a8db2585f4a9e9094cf&oe=5DDCF433', 
 )
 
 f1 = Relationship.create(
@@ -19,7 +27,7 @@ f1 = Relationship.create(
     last_name: 'Rivera',
     email: 'r.aidi@gmail.com',
     phone_number: '+12067896789',
-    image: '',
+    image: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/12274592_1150260185002500_8663542552834122806_n.jpg?_nc_cat=100&_nc_oc=AQkx7PilmoU4kCI19esv6g8vFQ-5WyIcOke4DNeDSh8mtNa8HVNCQxYhYkqNYn6rXow&_nc_ht=scontent-lga3-1.xx&oh=304c7dd4a0ca114f4bce46dd5ed315ef&oe=5DD0CC55',
     relationship_type: 'significant other',
     contact_frequency: 7,
     user_id: 1
@@ -30,7 +38,7 @@ f2 = Relationship.create(
     last_name: 'Fabro',
     email: 'f.fabro@gmail.com',
     phone_number: '+12061230987',
-    image: '',
+    image: 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/14976788_10154116883936365_5497699653912126450_o.jpg?_nc_cat=105&_nc_oc=AQk9yHaEL7B-3QoizmKDUCD2LIY5UYRv1ZWfoH_AVUJzfuc2nkVg9vuCZ0ra3JT1TVM&_nc_ht=scontent-lga3-1.xx&oh=0cef5bbac1297f3b6b3a987731a5b4c3&oe=5DCC932F',
     relationship_type: 'friend',
     contact_frequency: 12,
     user_id: 1
@@ -41,7 +49,7 @@ f3 = Relationship.create(
     last_name: 'Shaw',
     email: 'yuwi@gmail.com',
     phone_number: '+19172309481',
-    image: '',
+    image: 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/14102960_10157291221115335_7082657354163661497_o.jpg?_nc_cat=110&_nc_oc=AQlLSvwmdZmiivQPaRo6dwdg6oI8CmBFvwPQcIFQH_5p4xoBfInd6UfaYikqyKJdr9s&_nc_ht=scontent-lga3-1.xx&oh=3c23b7327e9c13dbb51871895524feba&oe=5DD42DA4',
     relationship_type: 'sibling',
     contact_frequency: 30,
     user_id: 1
@@ -49,8 +57,8 @@ f3 = Relationship.create(
 
 e1 = Event.create(
     name: 'Food Truck Fest',
-    start_date: 'Tue, 13 Aug 2019 16:00:00 -0700',
-    end_date: 'Tue, 13 Aug 2019 18:00:00 -0700',
+    start_date: '2019-08-13 16:00:00',
+    end_date: '2019-08-13 2019 18:00:00',
     location: 'Seattle',
     description: "It's gonna be dope.",
     user_id: 1
@@ -58,8 +66,8 @@ e1 = Event.create(
 
 e2 = Event.create(
     name: 'Dinner and a Movie',
-    start_date: 'Fri, 23 Aug 2019 11:00:00 -0700',
-    end_date: 'Fri, 23 Aug 2019 12:00:00 -0700',
+    start_date: '2019-08-23 11:00:00',
+    end_date: '2019-08-23 12:00:00',
     location: 'Seattle',
     description: "It's gonna be romantic.",
     user_id: 1
@@ -67,8 +75,8 @@ e2 = Event.create(
 
 e1 = Event.create(
     name: 'Street Fair',
-    start_date: 'Thu, 29 Aug 2019 10:00:00 -0700',
-    end_date: 'Thu, 29 Aug 2019 14:00:00 -0700',
+    start_date: '2019-08-29 10:00:00',
+    end_date: '2019-08-29 14:00:00',
     location: 'Seattle',
     description: "It's gonna be insane.",
     user_id: 1

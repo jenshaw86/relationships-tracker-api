@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
     def index
-        events = Event.all.order('created_at DESC')
-        render :json => events
+        events = Event.all.order('start_date ASC')
+        render :json => events, include: [:relationships]
     end
 
     def show
         event = Event.find(params[:id])
-        render :json => event
+        render :json => event, include: [:relationships]
     end
 
     def new 
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     def create
         event = Event.new(event_params)
         event.save
-        render :json => event
+        render :json => event, include: [:relationships]
     end
 
     def edit 
@@ -28,15 +28,15 @@ class EventsController < ApplicationController
     def update
         event = Event.find(params[:id])
         event.update(event_params)
-        events = Event.all.order('created_at DESC')        
-        render :json => events
+        events = Event.all.order('start_date ASC')        
+        render :json => events, include: [:relationships]
     end
 
     def destroy
         event = Event.find(params[:id])
         event.delete()
-        events = Event.all.order('created_at DESC')        
-        render :json => events       
+        events = Event.all.order('start_date ASC')        
+        render :json => events, include: [:relationships]  
     end
 
     private 
@@ -45,8 +45,6 @@ class EventsController < ApplicationController
             :name, 
             :start_date, 
             :end_date, 
-            :start_time, 
-            :end_time, 
             :location, 
             :description,
             :user_id

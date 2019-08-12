@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
 
     def show
         relationship = Relationship.find(params[:id])
-        render :json => relationship
+        render :json => relationship, include: [:events]
     end
 
     def new 
