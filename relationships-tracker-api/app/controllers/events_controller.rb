@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
     def edit 
         event = Event.find(params[:id])
-        render :json => event
+        render :json => event, [:relationships]
     end
 
     def update
