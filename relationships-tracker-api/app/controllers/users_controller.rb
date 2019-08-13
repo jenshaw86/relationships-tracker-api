@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         user.update(user_params)
-        users = User.all
-        render :json => users, include: [:relationships, :events]
+        render :json => user, include: [:relationships, :events]
     end
 
     private 
