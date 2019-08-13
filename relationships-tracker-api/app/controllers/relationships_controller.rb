@@ -9,19 +9,9 @@ class RelationshipsController < ApplicationController
         render :json => relationship, include: [:events]
     end
 
-    def new 
-        relationship = Relationship.new
-        render :json => relationship
-    end
-
     def create
         relationship = Relationship.new(relationship_params)
         relationship.save
-        render :json => relationship
-    end
-
-    def edit 
-        relationship = Relationship.find(params[:id])
         render :json => relationship
     end
 
