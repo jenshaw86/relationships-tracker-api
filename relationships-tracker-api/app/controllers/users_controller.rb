@@ -13,12 +13,12 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.update(user_params)
         users = User.all
-        render :json => Users, include: [:relationships, :events]
+        render :json => users, include: [:relationships, :events]
     end
 
     private 
     def user_params
-        params.require(:relationship).permit(
+        params.require(:user).permit(
             :first_name, 
             :last_name, 
             :email, 
