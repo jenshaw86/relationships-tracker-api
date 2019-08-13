@@ -10,5 +10,9 @@ class UsersController < ApplicationController
     end
 
     def update
+        user = User.find(params[:id])
+        user.update(user_params)
+        users = User.all
+        render :json => Users, include: [:relationships, :events]
     end
 end
