@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    events = Event.all.order('start_date ASC')
+    events = Event.all 
+    # .order('start_date ASC')
     render :json => events, include: [:relationships]
   end
 
@@ -27,7 +28,8 @@ class EventsController < ApplicationController
       event.update(event_params)
       # message = "Plans have changed for #{event.name} with #{event.user.first_name}!"
       # TwilioTextMessenger.new(message).call
-      events = Event.all.order('start_date ASC')        
+      events = Event.all
+      # .order('start_date ASC')        
       render :json => events, include: [:relationships]
     else 
       render :json => event.errors, status: :unprocessable_entity
@@ -39,7 +41,8 @@ class EventsController < ApplicationController
     event.delete()
     # message = "#{event.name} with #{event.user.first_name} is cancelled."
     # TwilioTextMessenger.new(message).call
-    events = Event.all.order('start_date ASC')        
+    events = Event.all
+    # .order('start_date ASC')        
     render :json => events, include: [:relationships]  
   end
 
