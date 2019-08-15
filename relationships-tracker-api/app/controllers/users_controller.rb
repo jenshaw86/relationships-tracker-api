@@ -6,7 +6,23 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
-        render :json => user
+        userData = Hash.new
+        userData[:user] = user
+        userData[:events] = user.events
+        userData[:events] = user.events.map do |event|
+            hh = Hash.new
+            hh[:event] = event
+            hh[:relationships] = event.relationships
+            hh
+        end
+        userData[:relationships] = user.relationships.map do |relationship|
+            hh = Hash.new
+            hh[:relationships] = relationship
+            hh[:events] = relationship.events
+            hh
+        end
+        userData
+        render :json => userData
     end
 
     def update

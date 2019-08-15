@@ -1,13 +1,24 @@
 class RelationshipEventsController < ApplicationController
   def index
-    relationshipEvents = RelationshipEvent.all
-    render :json => relationshipEvents
+    relationship_events = RelationshipEvent.all
+    render :json => relationship_events
+  end
+
+  def show 
+    relationship_event = RelationshipEvent.find(params[:id])
+    render :json => relationship_event
   end
 
   def create
-    relationshipEvent = RelationshipEvent.new(relationship_event_params)
-    relationshipEvent.save
-    render :json => relationshipEvent
+    relationship_event = RelationshipEvent.new(relationship_event_params)
+    relationship_event.save
+    render :json => relationship_event
+  end
+
+  def update
+    relationship_event = RelationshipEvent.find(params[:id])
+    relationship_event.update(relationship_event_params)
+    render :json => relationship_event
   end
 
   private 

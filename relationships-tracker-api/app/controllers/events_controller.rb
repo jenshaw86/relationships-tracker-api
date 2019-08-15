@@ -2,12 +2,12 @@ class EventsController < ApplicationController
   def index
     events = Event.all 
     # .order('start_date ASC')
-    render :json => events, include: [:relationships]
+    render :json => events, include: [:relationships, :relationship_events]
   end
 
   def show
     event = Event.find(params[:id])
-    render :json => event, include: [:relationships]
+    render :json => event, include: [:relationships, :relationship_events]
   end
 
   def create
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       event.save
       # message = "#{event.user.first_name} #{event.user.last_name} is inviting you to #{event.name}!"
       # TwilioTextMessenger.new(message).call
-      render :json => event, include: [:relationships]
+      render :json => event, include: [:relationships, :relationship_events]
     else
       render :json => event.errors, status: :unprocessable_entity
     end
@@ -28,9 +28,9 @@ class EventsController < ApplicationController
       event.update(event_params)
       # message = "Plans have changed for #{event.name} with #{event.user.first_name}!"
       # TwilioTextMessenger.new(message).call
-      events = Event.all
-      # .order('start_date ASC')        
-      render :json => events, include: [:relationships]
+      # .order('start_date ASC')    
+      events = Event.all    
+      render :json => events, include: [:relationships, :relationship_events]
     else 
       render :json => event.errors, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     # TwilioTextMessenger.new(message).call
     events = Event.all
     # .order('start_date ASC')        
-    render :json => events, include: [:relationships]  
+    render :json => events, include: [:relationships, :relationship_events]  
   end
 
   private 
