@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
     def index
-        relationships = Relationship.all
+        relationships = Relationship.where("user_id = ?", params[:user_id])
         render :json => relationships, include: [:events]
     end
 
