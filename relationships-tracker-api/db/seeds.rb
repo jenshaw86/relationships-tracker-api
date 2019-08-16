@@ -73,7 +73,7 @@ e2 = Event.create(
     user_id: 1
 )
 
-e1 = Event.create(
+e3 = Event.create(
     name: 'Street Fair',
     start_date: '2019-08-29 10:00:00',
     end_date: '2019-08-29 14:00:00',

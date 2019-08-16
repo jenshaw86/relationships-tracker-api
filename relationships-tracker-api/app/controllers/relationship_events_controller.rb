@@ -21,6 +21,13 @@ class RelationshipEventsController < ApplicationController
     render :json => relationship_event
   end
 
+  def destroy
+    relationship_event = RelationshipEvent.find(params[:id])
+    relationship_event.delete()
+    relationship_events = RelationshipEvent.all
+    render :json => relationship_events
+  end
+
   private 
     def relationship_event_params
         params.require(:relationship_event).permit(
