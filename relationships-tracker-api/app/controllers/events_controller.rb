@@ -38,10 +38,11 @@ class EventsController < ApplicationController
 
   def destroy
     event = Event.find(params[:id])
+    user_id = event.user_id
     event.delete()
     # message = "#{event.name} with #{event.user.first_name} is cancelled."
     # TwilioTextMessenger.new(message).call
-    events = Event.all
+    events = Event.where("user_id = ?", user_id) 
     # .order('start_date ASC')        
     render :json => events, include: [:relationships, :relationship_events]  
   end
