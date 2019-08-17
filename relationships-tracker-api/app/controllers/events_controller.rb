@@ -26,10 +26,11 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     if event.update(event_params)
       event.update(event_params)
+      user_id = event.user_id
       # message = "Plans have changed for #{event.name} with #{event.user.first_name}!"
       # TwilioTextMessenger.new(message).call
       # .order('start_date ASC')    
-      events = Event.where("user_id = ?", params[:user_id])
+      events = Event.where("user_id = ?", user_id)
       render :json => events, include: [:relationships, :relationship_events]
     else 
       render :json => event.errors, status: :unprocessable_entity
