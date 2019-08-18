@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users do 
-    resources :events
+    resources :events 
     resources :relationships
   end
 
