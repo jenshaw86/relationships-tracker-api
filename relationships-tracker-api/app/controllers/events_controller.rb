@@ -14,8 +14,6 @@ class EventsController < ApplicationController
     event = Event.new(event_params)
     if event.save
       event.save
-      # message = "#{event.user.first_name} #{event.user.last_name} is inviting you to #{event.name}!"
-      # TwilioTextMessenger.new(message).call
       render :json => event, include: [:relationships, :relationship_events]
     else
       render :json => event.errors, status: :unprocessable_entity
