@@ -24,9 +24,12 @@ class RelationshipsController < ApplicationController
 
     def destroy
         relationship = Relationship.find(params[:id])
+        # relationship.events.each{|ev| ev.destory}
+        # do same for join
         relationship.delete()
         relationships = Relationship.all
         render :json => relationships, include: [:events, :relationship_events]
+        # render :json -> {message: "successfully deleted", relationship: relationship}
     end
 
     private 

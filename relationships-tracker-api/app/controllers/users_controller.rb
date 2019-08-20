@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
-        render :json => user, include: [:events, :relationships]
+        render :json => user
     end
 
     def update
