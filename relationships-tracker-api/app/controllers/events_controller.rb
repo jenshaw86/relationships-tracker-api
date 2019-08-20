@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   def index
     events = Event.where("user_id = ?", params[:user_id])
-    # .order('end_date ASC')
     render :json => events, include: [:relationships, :relationship_events]
   end
 

@@ -122,6 +122,15 @@ e5 = Event.create(
     user_id: 1
 )
 
+e6 = Event.create(
+    name: 'Camping',
+    start_date: '2019-08-12 10:00:00',
+    end_date: '2019-08-12 14:00:00',
+    location: 'in the woods',
+    description: "It's gonna be uncomfortable.",
+    user_id: 1
+)
+
 
 re1 = RelationshipEvent.create(
     relationship_id: 1, 
@@ -142,7 +151,12 @@ re4 = RelationshipEvent.create(
     relationship_id: 5, 
     event_id: 4
 )
-re3 = RelationshipEvent.create(
+re5 = RelationshipEvent.create(
     relationship_id: 4, 
     event_id: 5
+)
+
+re6 = RelationshipEvent.create(
+    relationship_id: 3, 
+    event_id: 6
 )
