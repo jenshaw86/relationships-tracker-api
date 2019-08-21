@@ -18,12 +18,16 @@ class RelationshipsController < ApplicationController
     def update
         relationship = Relationship.find(params[:id])
         relationship.update(relationship_params)
-        relationships = Relationship.all
-        render :json => relationships, include: [:events, :relationship_events]
+        # relationships = Relationship.all
+        # render :json => relationships, include: [:events, :relationship_events]
+        render :json => relationship, include: [:events, :relationship_events]
+
     end
 
     def destroy
         relationship = Relationship.find(params[:id])
+        relationship.events.each {|ev| ev.destroy}
+        relationship.relationship_events.each {|re| re.destroy}
         # relationship.events.each{|ev| ev.destory}
         # do same for join
         relationship.delete()
