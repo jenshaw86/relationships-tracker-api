@@ -48,6 +48,7 @@ class RelationshipsController < ApplicationController
             :relationship_type,
             :relationship_length,
             :relationship_description,
+            :contact_frequency,
             :user_id
         )
     end

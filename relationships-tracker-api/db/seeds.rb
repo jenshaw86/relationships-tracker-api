@@ -98,8 +98,8 @@ e1 = Event.create(
 
 e2 = Event.create(
     name: 'Dinner and a Movie',
-    start_date: '2019-08-23 11:00:00',
-    end_date: '2019-08-23 12:00:00',
+    start_date: '2019-08-23 22:00:00',
+    end_date: '2019-08-23 24:00:00',
     location: 'Seattle',
     description: "It's gonna be a romantic night with me and my bae.",
     user_id: 1
