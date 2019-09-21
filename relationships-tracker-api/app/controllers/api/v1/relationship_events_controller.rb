@@ -1,4 +1,4 @@
-class RelationshipEventsController < ApplicationController
+class Api::V1::RelationshipEventsController < ApplicationController
   def index
     relationship_events = RelationshipEvent.all
     render :json => relationship_events
