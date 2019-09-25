@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-  
+  before_action :authorized
+
   def issue_token(user) # returns a JWT
     JWT.encode(user, 'mustLurvd0gz')
   end
@@ -32,5 +33,8 @@ class ApplicationController < ActionController::API
     !!current_user # does current_user have a value? is user logged in?
   end
 
+  def authorized
+    render json: {message: 'Please log in'}, status: :unauthorized unless logged_in?
+  end
 
 end

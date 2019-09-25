@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/account', to: 'users#account'
       patch '/account', to: 'users#update'
       post '/login', to: 'auth#create'
+      resources :auth, only: [:create]
       
       
     end
