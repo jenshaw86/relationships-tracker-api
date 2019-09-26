@@ -2,10 +2,10 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def issue_token(user) # returns a JWT
-    JWT.encode(user, 'mustLurvd0gz')
+    JWT.encode({user_id: user.id}, 'mustLurvd0gz')
   end
 
-  def decoded_token(token) # returns the user
+  def decoded_token # returns the user
     if token
       begin
         JWT.decode(token, 'mustLurvd0gz', true, {:algorithm => 'HS256'}) # returns [payload (user_id), algo]
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
 
   def user_id 
     if decoded_token
-      decoded_token[0][user_id] # returns current user's id
+      decoded_token.first['user_id'] # returns current user's id
     end
   end
 
@@ -35,6 +35,11 @@ class ApplicationController < ActionController::API
 
   def authorized
     render json: {message: 'Please log in'}, status: :unauthorized unless logged_in?
+    # if logged_in?
+    #   render json: {message: 'Authorized!'}
+    # else
+    #   render json: {message: 'Please log in'}
+    # end
   end
 
 end

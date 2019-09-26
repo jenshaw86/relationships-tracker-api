@@ -1,6 +1,7 @@
 class Api::V1::EventsController < ApplicationController
   def index
-    events = Event.where("user_id = ?", params[:user_id])
+    # events = Event.where("user_id = ?", @user.id)
+    events = Event.all
     render :json => events, include: [:relationships, :relationship_events]
   end
 

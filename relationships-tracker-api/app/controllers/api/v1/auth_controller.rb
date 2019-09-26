@@ -13,7 +13,8 @@ class Api::V1::AuthController < ApplicationController
 
   def show
     if logged_in?
-      render json: { id: current_user.id, email: current_user.email }
+      # render json: { id: current_user.id, email: current_user.email }
+      render json: {user: UserSerializer.new(current_user)}
     else
       render json: {error: 'No user could be found'}, status: :unauthorized
     end

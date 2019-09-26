@@ -1,6 +1,9 @@
 class Api::V1::RelationshipsController < ApplicationController
+    before_action :authorized
+
     def index
-        relationships = Relationship.where("user_id = ?", params[:user_id])
+        # relationships = Relationship.where("user_id = ?", @user.id)
+        relationships = Relationship.all
         render :json => relationships, include: [:events, :relationship_events]
     end
 
