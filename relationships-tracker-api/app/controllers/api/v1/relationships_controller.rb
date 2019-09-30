@@ -2,9 +2,9 @@ class Api::V1::RelationshipsController < ApplicationController
     before_action :authorized
 
     def index
-        # relationships = Relationship.where("user_id = ?", @user.id)
-        relationships = Relationship.all
-        render :json => relationships, include: [:events, :relationship_events]
+        relationships = Relationship.where("user_id = ?", @user.id)
+        # relationships = Relationship.all
+        render :json => relationships, include: [:events]
     end
 
     # def show
@@ -15,7 +15,7 @@ class Api::V1::RelationshipsController < ApplicationController
     def create
         relationship = Relationship.new(relationship_params)
         relationship.save
-        render :json => relationship, include: [:events, :relationship_events]
+        render :json => relationship, include: [:events]
     end
 
     def update
@@ -23,7 +23,7 @@ class Api::V1::RelationshipsController < ApplicationController
         relationship.update(relationship_params)
         # relationships = Relationship.all
         # render :json => relationships, include: [:events, :relationship_events]
-        render :json => relationship, include: [:events, :relationship_events]
+        render :json => relationship, include: [:events]
 
     end
 
@@ -35,7 +35,7 @@ class Api::V1::RelationshipsController < ApplicationController
         # do same for join
         relationship.delete()
         relationships = Relationship.all
-        render :json => relationships, include: [:events, :relationship_events]
+        render :json => relationships, include: [:events]
         # render :json -> {message: "successfully deleted", relationship: relationship}
     end
 
@@ -47,7 +47,6 @@ class Api::V1::RelationshipsController < ApplicationController
             :email, 
             :phone_number, 
             :image, 
-            :birthday, 
             :relationship_type,
             :relationship_length,
             :relationship_description,
