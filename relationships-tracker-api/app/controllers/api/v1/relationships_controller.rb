@@ -34,7 +34,7 @@ class Api::V1::RelationshipsController < ApplicationController
         # relationship.events.each{|ev| ev.destory}
         # do same for join
         relationship.delete()
-        relationships = Relationship.all
+        relationships = Relationship.where("user_id = ?", @user.id)
         render :json => relationships, include: [:events]
         # render :json -> {message: "successfully deleted", relationship: relationship}
     end
