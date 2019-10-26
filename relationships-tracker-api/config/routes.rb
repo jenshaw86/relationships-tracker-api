@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       
       resources :relationships
       resources :events
+      resources :relationship_events
     end
   end
 

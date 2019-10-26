@@ -1,5 +1,4 @@
 class Api::V1::RelationshipsController < ApplicationController
-    before_action :authorized
 
     def index
         relationships = Relationship.where("user_id = ?", @user.id)
@@ -7,10 +6,10 @@ class Api::V1::RelationshipsController < ApplicationController
         render :json => relationships, include: [:events]
     end
 
-    # def show
-    #     relationship = Relationship.find(params[:id])
-    #     render :json => relationship, include: [:events, :relationship_events]
-    # end
+    def show
+        relationship = Relationship.find(params[:id])
+        render :json => relationship, include: [:events]
+    end
 
     def create
         relationship = Relationship.new(relationship_params)
@@ -55,3 +54,4 @@ class Api::V1::RelationshipsController < ApplicationController
         )
     end
 end
+

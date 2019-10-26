@@ -1,4 +1,5 @@
 class Api::V1::RelationshipEventsController < ApplicationController
+
   def index
     relationship_events = RelationshipEvent.all
     render :json => relationship_events
@@ -11,15 +12,16 @@ class Api::V1::RelationshipEventsController < ApplicationController
 
   def create
     relationship_event = RelationshipEvent.new(relationship_event_params)
-    if relationship_event.save 
-      relationship_event.save
-      user = "#{relationship_event.event.user.first_name} #{relationship_event.event.user.last_name}"
-      event = relationship_event.event.name
-      recipient_name = relationship_event.relationship.first_name
-      recipient_number = relationship_event.relationship.phone_number
-      message = "Hey #{recipient_name}! #{user} wants to invite you to #{event}!"
-      TwilioTextMessenger.new(message, recipient_number).call
-    end
+    relationship_event.save
+    # if relationship_event.save 
+      # relationship_event.save
+      # user = "#{relationship_event.event.user.first_name} #{relationship_event.event.user.last_name}"
+      # event = relationship_event.event.name
+      # recipient_name = relationship_event.relationship.first_name
+      # recipient_number = relationship_event.relationship.phone_number
+      # message = "Hey #{recipient_name}! #{user} wants to invite you to #{event}!"
+      # TwilioTextMessenger.new(message, recipient_number).call
+    # end
     render :json => relationship_event
   end
 

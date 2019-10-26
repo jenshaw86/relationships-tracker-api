@@ -1,7 +1,6 @@
 class Api::V1::EventsController < ApplicationController
   def index
     events = Event.where("user_id = ?", @user.id)
-    # events = Event.all
     render :json => events, include: [:relationships]
   end
 
@@ -13,7 +12,7 @@ class Api::V1::EventsController < ApplicationController
   def create
     event = Event.new(event_params)
     if event.save
-      event.save
+      # event.save
       render :json => event, include: [:relationships]
     else
       render :json => event.errors, status: :unprocessable_entity
