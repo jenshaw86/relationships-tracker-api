@@ -11,8 +11,14 @@ Rails.application.routes.draw do
       get '/current_user', to: 'auth#show'
       post '/login', to: 'auth#create'
       
-      resources :relationships
-      resources :events
+      resources :relationships do 
+        resources :events
+      end
+
+      resources :events do 
+        resources :relationships
+      end
+      
       resources :relationship_events
     end
   end

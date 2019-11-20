@@ -1,6 +1,10 @@
 class Api::V1::EventsController < ApplicationController
+  include EventsHelper
+
   def index
     events = Event.where("user_id = ?", @user.id)
+    events = sortEvents(events)
+    byebug
     render :json => events, include: [:relationships]
   end
 
@@ -29,7 +33,7 @@ class Api::V1::EventsController < ApplicationController
       # .order('start_date ASC')    
       # events = Event.where("user_id = ?", user_id)
       # render :json => events, include: [:relationships, :relationship_events]
-      render :json => event, include: [:relationships]
+      render :json => event, include: [:relationships, :relationship_events]
     else 
       render :json => event.errors, status: :unprocessable_entity
     end
