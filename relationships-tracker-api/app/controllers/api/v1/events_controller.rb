@@ -3,7 +3,8 @@ class Api::V1::EventsController < ApplicationController
 
   def index
     events = Event.where("user_id = ?", @user.id)
-    events = sortEvents(events)
+    # events are ordered and sorted inside an object containing future and past events
+    events = sortOrderedEvents(events)
     render :json => events, include: [:relationships]
   end
 
@@ -45,7 +46,8 @@ class Api::V1::EventsController < ApplicationController
     event.delete()
     # message = "#{event.name} with #{event.user.first_name} is cancelled."
     # TwilioTextMessenger.new(message).call
-    events = Event.where("user_id = ?", user_id) 
+    events = Event.where("user_id = ?", user_id)
+    events = sortOrderedEvents(events)
     # .order('start_date ASC')        
     render :json => events, include: [:relationships]  
   end
