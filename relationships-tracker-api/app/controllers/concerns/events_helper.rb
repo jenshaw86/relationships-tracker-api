@@ -2,7 +2,7 @@ module EventsHelper
   def sortOrderedEvents(events)
     future_events = []
     past_events = []
-    events = events.sort_by{ |event| event.start_date}
+    events = events.sort_by {|event| event.start_date}
     events.each do |event|
       # check if event has already ended
       if event.end_date.past?
