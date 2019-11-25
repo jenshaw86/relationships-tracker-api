@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
+    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], image: 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg')
     if @user.valid?
       render json: { user: UserSerializer.new(@user)}, status: :created
     else 
@@ -15,21 +15,19 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-      user = User.find(params[:id])
-      user.update(user_params)
-      render :json => user
+    user = User.find(params[:id])
+    user.update(user_params)
+    render :json => {user: UserSerializer.new(user)}
   end
 
   private 
   def user_params
       params.require(:user).permit(
           :first_name, 
-          :last_name, 
-          :email, 
-          # :password
-          # :phone_number, 
-          # :image, 
-          # :user_id
+          :last_name,   
+          :email,
+          :image, 
+          :phone_number
       )
   end
 end

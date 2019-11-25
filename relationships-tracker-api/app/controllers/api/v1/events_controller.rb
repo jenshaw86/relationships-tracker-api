@@ -15,6 +15,7 @@ class Api::V1::EventsController < ApplicationController
 
   def create
     event = Event.new(event_params)
+    # byebug
     if event.save
       # event.save
       render :json => event, include: [:relationships]

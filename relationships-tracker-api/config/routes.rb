@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       # Auth routes
       resources :users, only: [:create] 
       get '/account', to: 'users#account'
-      patch '/account', to: 'users#update'
+      patch '/account/:id', to: 'users#update'
       
       resources :auth, only: [:create]
       get '/current_user', to: 'auth#show'
