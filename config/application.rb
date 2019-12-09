@@ -17,17 +17,17 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# module RelationshipsTrackerApi
-#   class Application < Rails::Application
-    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'https://jenshaw86.github.io/'
+module RelationshipsTrackerApi
+  class Application < Rails::Application
+    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
     
-    #     resource '*',
-    #       headers: :any,
-    #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    #   end
-    # end
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
     
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
