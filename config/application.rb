@@ -21,7 +21,7 @@ module RelationshipsTrackerApi
   class Application < Rails::Application
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'https://jenshaw86.github.io/'
     
         resource '*',
           headers: :any,
