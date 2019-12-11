@@ -22,7 +22,7 @@ module RelationshipsTrackerApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://jenshaw86.github.io'
+        origins '*'
     
         resource '*',
           headers: :any,
