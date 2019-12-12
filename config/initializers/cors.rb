@@ -10,6 +10,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins 'https://stay-connected-app.herokuapp.com/'
     resource '*',
     headers: :any,
-    method: [:get, :post, :patch, :delete]
+    methods: [:get, :post, :patch, :delete]
   end
 end
