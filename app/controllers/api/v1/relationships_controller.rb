@@ -1,5 +1,6 @@
-class Api::V1::RelationshipsController < ApplicationController
+require 'faker'
 
+class Api::V1::RelationshipsController < ApplicationController
     def index
         relationships = Relationship.where("user_id = ?", @user.id)
         render :json => relationships, include: [:events]
@@ -12,6 +13,10 @@ class Api::V1::RelationshipsController < ApplicationController
 
     def create
         relationship = Relationship.new(relationship_params)
+        if params[:image] == ''
+            image = Faker::Avatar.image
+            relationship.image = image
+        end
         relationship.save
         render :json => relationship, include: [:events]
     end

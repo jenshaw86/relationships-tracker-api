@@ -1,3 +1,5 @@
+require 'faker'
+
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
@@ -6,7 +8,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], image: 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg')
+    image = Faker::Avatar.image
+    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], image: image)
     if @user.valid?
       render json: { user: UserSerializer.new(@user)}, status: :created
     else 
